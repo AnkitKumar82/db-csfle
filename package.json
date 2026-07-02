@@ -1,0 +1,37 @@
+{
+  "name": "@ankit/db-csfle",
+  "version": "1.0.0",
+  "description": "Database client-side field-level encryption library",
+  "keywords": [
+    "Database",
+    "Crypto",
+    "Field Encryption",
+    "Encryption"
+  ],
+  "homepage": "https://github.com/AnkitKumar82/db-csfle#readme",
+  "bugs": {
+    "url": "https://github.com/AnkitKumar82/db-csfle/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnkitKumar82/db-csfle.git"
+  },
+  "license": "MIT",
+  "author": "Ankit Kumar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit --require ts-node/register tests/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^20.0.0",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1"
+  }
+}

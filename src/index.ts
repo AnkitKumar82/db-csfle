@@ -1,0 +1,8 @@
+export { EncryptionEngine } from "./engine/EncryptionEngine"
+export { SchemaProviderImpl as SchemaProvider } from "./schema/SchemaProvider"
+export { StaticKeyProvider } from "./keys/StaticKeyProvider"
+export { MetadataHandler } from "./metadata/MetadataHandler"
+export { EncryptionError } from "./errors/EncryptionError"
+export { SchemaValidationError } from "./errors/SchemaValidationError"
+export { InvalidKeyError } from "./errors/InvalidKeyError"
+export { UnsupportedAlgorithmError } from "./errors/UnsupportedAlgorithmError"
