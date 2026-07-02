@@ -1,16 +1,12 @@
 import crypto from "node:crypto"
 import type { EncryptedValue, EncryptionProvider, EncryptionKey } from "../types/crypto"
+import { base64Encode, base64Decode, normalizeKey } from "../utils/index"
 
 const METADATA_ALGORITHM = "AES-GCM"
 const NODE_ALGORITHM = "aes-256-gcm"
 const VERSION = 1
 const IV_LENGTH = 12
 const AUTH_TAG_LENGTH = 16
-
-const base64Encode = (data: Buffer): string => data.toString("base64")
-const base64Decode = (value: string): Buffer => Buffer.from(value, "base64")
-const normalizeKey = (key: EncryptionKey): Buffer =>
-  Buffer.isBuffer(key) ? key : Buffer.from(key)
 
 export const createAesGcmProvider = (): EncryptionProvider => ({
   async encrypt(plaintext, key) {

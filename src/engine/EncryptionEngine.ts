@@ -2,6 +2,7 @@ import type { EncryptionProvider } from "../types/crypto"
 import type { SchemaProvider } from "../types/schema"
 import type { KeyProvider } from "../types/keys"
 import type { EncryptedValue } from "../types/crypto"
+import { isEncryptedValue } from "../utils/index"
 
 export class EncryptionEngine {
   private encryptionProvider: EncryptionProvider
@@ -112,7 +113,7 @@ export class EncryptionEngine {
         const value = obj[key]
         
         // Check if this is an encrypted value
-        if (this.isEncryptedValue(value)) {
+        if (isEncryptedValue(value)) {
           const encryptionKey = await this.keyProvider.getKey()
           const decryptedValue = await this.encryptionProvider.decrypt(value, encryptionKey)
           result[key] = decryptedValue
@@ -126,15 +127,4 @@ export class EncryptionEngine {
     return result
   }
 
-  /**
-   * Checks if an object is an encrypted value
-   */
-  private isEncryptedValue(obj: any): boolean {
-    return obj && 
-           typeof obj === "object" && 
-           obj.hasOwnProperty("algorithm") &&
-           obj.hasOwnProperty("version") &&
-           obj.hasOwnProperty("iv") &&
-           obj.hasOwnProperty("ciphertext")
-  }
 }
