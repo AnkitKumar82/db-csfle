@@ -1,4 +1,5 @@
 import type { EncryptedValue } from "../types/crypto"
+import { isValidMetadata, getAlgorithm, getVersion, getIv } from "../utils/index"
 
 export class MetadataHandler {
   /**
@@ -16,31 +17,27 @@ export class MetadataHandler {
    * Validates if the metadata is valid
    */
   static isValidMetadata(metadata: any): boolean {
-    return metadata && 
-           typeof metadata === "object" &&
-           metadata.hasOwnProperty("algorithm") &&
-           metadata.hasOwnProperty("version") &&
-           metadata.hasOwnProperty("iv")
+    return isValidMetadata(metadata)
   }
 
   /**
    * Gets algorithm from metadata
    */
   static getAlgorithm(metadata: any): string {
-    return metadata.algorithm
+    return getAlgorithm(metadata)
   }
 
   /**
    * Gets version from metadata
    */
   static getVersion(metadata: any): number {
-    return metadata.version
+    return getVersion(metadata)
   }
 
   /**
    * Gets IV from metadata
    */
   static getIv(metadata: any): string {
-    return metadata.iv
+    return getIv(metadata)
   }
 }
