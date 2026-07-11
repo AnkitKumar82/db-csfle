@@ -23,6 +23,9 @@
   "scripts": {
     "test": "mocha --exit --require ts-node/register tests/**/*.test.ts"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/mocha": "^10.0.0",
