@@ -43,6 +43,35 @@ const encryptedData = await engine.encryptObject({
 const decryptedData = await engine.decryptObject(encryptedData)
 ```
 
+## Custom Key Providers
+
+The library supports implementing custom key providers to override the default `StaticKeyProvider`. This allows you to fetch keys from secure sources like environment variables, KMS, or remote APIs.
+
+```ts
+import { KeyProvider } from 'db-csfle';
+
+class MyCustomKeyProvider implements KeyProvider {
+  async getKey(): Promise<EncryptionKey> {
+    // Implement your key fetching logic here
+    // Could fetch from environment variables, KMS, API, etc.
+    
+    // Example: Fetching from environment variable
+    const keyString = process.env.ENCRYPTION_KEY;
+    if (!keyString) {
+      throw new Error('ENCRYPTION_KEY environment variable not set');
+    }
+    
+    const encoder = new TextEncoder();
+    const keyArrayBuffer = encoder.encode(keyString).slice(0, 32); // AES-256 requires 32 bytes
+    return new Uint8Array(keyArrayBuffer);
+  }
+}
+
+// Use the custom key provider
+const customKeyProvider = new MyCustomKeyProvider();
+const engine = new EncryptionEngine(cryptoProvider, schema, customKeyProvider);
+```
+
 ## Environment Variables
 
 The library doesn't require any specific environment variables by default. However, when using external key providers (like KMS), you might need to set:

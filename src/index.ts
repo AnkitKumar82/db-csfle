@@ -1,6 +1,7 @@
 export { EncryptionEngine } from "./engine/EncryptionEngine"
 export { SchemaProviderImpl as SchemaProvider } from "./schema/SchemaProvider"
 export { StaticKeyProvider } from "./keys/StaticKeyProvider"
+export { KeyProvider } from "./types/keys"
 export { MetadataHandler } from "./metadata/MetadataHandler"
 export { EncryptionError } from "./errors/EncryptionError"
 export { SchemaValidationError } from "./errors/SchemaValidationError"

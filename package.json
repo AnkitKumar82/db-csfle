@@ -1,6 +1,6 @@
 {
   "name": "@k_ankit/db-csfle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Database client-side field-level encryption library",
   "keywords": [
     "Database",
@@ -21,6 +21,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "mocha --exit --require ts-node/register tests/**/*.test.ts"
   },
   "publishConfig": {

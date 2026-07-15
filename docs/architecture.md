@@ -265,3 +265,21 @@ These features should not require breaking changes to the public API.
 ## Guiding Principle
 
 **This library exists to provide secure, predictable, and extensible field-level encryption while remaining completely independent of any specific database, framework, or deployment environment. Security, correctness, and maintainability always take precedence over convenience or feature count.**
+
+## Implementing Custom Key Providers
+
+Users can implement their own custom key providers by implementing the `KeyProvider` interface.
+
+Example of a custom key provider:
+```ts
+import { KeyProvider } from "db-csfle";
+import { EncryptionKey } from "db-csfle/types";
+
+class MyCustomKeyProvider implements KeyProvider {
+  async getKey(): Promise<EncryptionKey> {
+    // Implementation to get key from your preferred source
+    // e.g., fetch from API, read from environment variables, etc.
+    return myEncryptionKey;
+  }
+}
+```
