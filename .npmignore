@@ -3,7 +3,7 @@
 # Development and build files
 node_modules/
 build/
-src/
+/src/ 
 
 # Test files
 __tests__/

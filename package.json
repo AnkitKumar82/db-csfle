@@ -1,6 +1,6 @@
 {
   "name": "@k_ankit/db-csfle",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Database client-side field-level encryption library",
   "keywords": [
     "Database",
